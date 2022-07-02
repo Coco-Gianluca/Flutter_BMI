@@ -1,4 +1,4 @@
-# bmi
+# Coco und Didier BMI Calculator
 
 A new Flutter project.
 
