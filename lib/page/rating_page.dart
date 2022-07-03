@@ -8,7 +8,7 @@ class RatingsPage extends StatelessWidget {
     appBar: AppBar(
       title: Text('Rating'),
       centerTitle: true,
-      backgroundColor: Colors.red,
+      backgroundColor: Color.fromRGBO(50, 75, 205, 1),
     ),
     body: ListView(
       children: const <Widget>[

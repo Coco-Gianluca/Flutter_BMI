@@ -51,9 +51,6 @@ class _MainPageState extends State<MainPage> {
             // Scaffold.of(context).openEndDrawer();
           },
         ),
-
-
-
       ),
     ),
   );

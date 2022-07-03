@@ -24,10 +24,9 @@ class _CalculatorState extends State<Calculator> {
   // the controller for the text field associated with "weight"
   final _weightController = TextEditingController();
 
-  // The BMI
+  // ID for the Database // The BMI  // the message at the beginning
+  int? id;
   double? _bmi;
-
-  // the message at the beginning
   String _message = 'Please enter your height an weight';
 
   void _calculate() {
@@ -62,9 +61,9 @@ class _CalculatorState extends State<Calculator> {
         appBar: AppBar(
           title: Text('Calculator'),
           centerTitle: true,
-          backgroundColor: Colors.green,
+          backgroundColor: Color.fromRGBO(50, 75, 205, 1)
         ),
-       backgroundColor: Colors.green,
+       backgroundColor: Colors.tealAccent,
         body: Center(
           child: Container(
             width: 320,

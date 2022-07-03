@@ -6,7 +6,7 @@ class HistoryPage extends StatelessWidget {
     appBar: AppBar(
       title: Text('Your History'),
       centerTitle: true,
-      backgroundColor: Colors.red,
+      backgroundColor: Color.fromRGBO(50, 75, 205, 1),
     ),
   );
 }

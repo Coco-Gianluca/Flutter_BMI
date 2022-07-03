@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:bmi/page/history_page.dart';
 import 'package:bmi/page/calculator_page.dart';
 import 'package:bmi/page/user_page.dart';
-import 'package:bmi/page/history_page.dart';
 import 'package:bmi/page/rating_page.dart';
+import 'package:bmi/page/statement_page.dart';
 
 
 
@@ -58,8 +58,8 @@ class NavigationDrawerWidget extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
-                    text: 'Updates',
-                    icon: Icons.update,
+                    text: 'What is BMI?',
+                    icon: Icons.question_mark,
                     onClicked: () => selectedItem(context, 3),
                   ),
                   const SizedBox(height: 24),
@@ -181,6 +181,11 @@ class NavigationDrawerWidget extends StatelessWidget {
       case 2:
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => RatingsPage(),
+        ));
+        break;
+      case 3:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => StatementPage(),
         ));
         break;
     }
