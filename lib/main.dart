@@ -52,9 +52,7 @@ class _MainPageState extends State<MainPage> {
           },
         ),
 
-        child:TextSpan(
-          icon: Icons.pedal_bike,
-        ),
+
 
       ),
     ),
