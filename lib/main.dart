@@ -51,10 +51,16 @@ class _MainPageState extends State<MainPage> {
             // Scaffold.of(context).openEndDrawer();
           },
         ),
+
+        child:TextSpan(
+          icon: Icons.pedal_bike,
+        ),
+
       ),
     ),
   );
 }
+
 
 
 

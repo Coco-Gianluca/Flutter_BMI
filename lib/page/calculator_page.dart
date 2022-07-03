@@ -2,25 +2,22 @@ import 'package:flutter/material.dart';
 
 class CalculatePage extends StatelessWidget {
   @override
-  Widget build(BuildContext context) => Scaffold(
-    //drawer: NavigationDrawerWidget(),
-    appBar: AppBar(
-      title: Text('Calculator'),
-
-      centerTitle: true,
-      backgroundColor: Colors.green,
-
-    ),
-
-  );
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Calculator',
+      home: Calculator(),
+    );
+  }
 }
 
-class HomePage extends StatefulWidget {
+class Calculator extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _CalculatorState createState() => _CalculatorState();
+
 }
 
-class _HomePageState extends State<HomePage> {
+class _CalculatorState extends State<Calculator> {
   // the controller for the text field associated with "height"
   final _heightController = TextEditingController();
 
@@ -62,7 +59,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.deepOrange,
+        appBar: AppBar(
+          title: Text('Calculator'),
+          centerTitle: true,
+          backgroundColor: Colors.green,
+        ),
+       backgroundColor: Colors.green,
         body: Center(
           child: Container(
             width: 320,
