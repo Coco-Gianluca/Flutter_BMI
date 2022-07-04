@@ -36,7 +36,7 @@ class RatingsPage extends StatelessWidget {
     'Values from 25.00 to less than 30.00.',
     'Values from 30.00 to less than 35.00.',
     'Values from 35.00 to less than 40.00.',
-    'Values less than 15.00.'
+    'Values From 40.00.'
   ];
   final List<RatingDataModel> Ratingdetails = List.generate(
       ratings.length,
