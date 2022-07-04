@@ -17,7 +17,7 @@ class RatingDetail extends StatelessWidget {
            height: 25,
          ),
          Text(
-             ratingDataModel.name,
+             ratingDataModel.desc,
            style: TextStyle(
              fontSize: 25,
            ),
