@@ -1,4 +1,5 @@
 import 'package:bmi/page/rating_data_model.dart';
+import 'package:bmi/page/rating_details.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
@@ -53,7 +54,7 @@ class RatingsPage extends StatelessWidget {
               child: Image.network(Ratingdetails[index].ImageUrl),
             ),
             onTap: (){
-              print('tapped');
+              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>RatingDetail(ratingDataModel: ratings[index],)));
             },
 
           ),
