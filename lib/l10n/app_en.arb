@@ -1,0 +1,118 @@
+{
+  "language": "English",
+  "@language": {
+    "description": "The current Language"
+  },
+  "calculate": "Calculate",
+  "@calculate": {
+    "description": "The calculate Button in calculator_page "
+  },
+  "calculator": "Calculator",
+  "@calculator": {
+    "description": "Calculator title "
+  },
+  "requestPersonalData": "Please enter your personal data",
+  "@requestPersonalData":{
+    "description": "Request of Personal Data"
+  },
+  "ifWrongNumber": "Your height and weigh must be positive numbers",
+  "@ifWrongNumber":{
+    "description": "Information field if height and weight input are negative numbers"
+  },
+  "underweight": "You are underweight",
+  "@underweight": {
+    "description": " If result is underweight"
+  },
+  "fine": "Your body is fine",
+  "@fine": {
+    "description": "If result is fine"
+  },
+  "overweight": "You are overweight",
+  "@overweight": {
+    "description": "If result is overweight"
+  },
+  "obese": "You are obese",
+  "@obese": {
+    "description": "If result is obese"
+  },
+  "height": "Height (m)",
+  "@height": {
+    "description": "Your height"
+  },
+  "weight": "Weight (kg)",
+  "@weight": {
+    "description": "Your weight"
+  },
+  "empty": "Empty",
+  "@empty": {
+    "description": "If no result is calculated"
+  },
+  "openDrawer": "Open Drawer",
+  "@openDrawer": {
+    "description": "Open Drawer"
+  },
+  "welcome": "Welcome",
+  "@welcome": {
+    "description": "Welcome in main page"
+  },
+  "yourHistory": "Your History",
+  "@yourHistory": {
+    "description": "Your History title"
+  },
+  "whatIsBMI": "What is BMI",
+  "@whatIsBMI": {
+    "description": "BMI title"
+  },
+  "explanationBMI1": "Your BMI is a number based on your height, weight and age. Each of these are divided into three categories: under 18.5, 18.5-24 and 25-29.9. For women it is considered normal to be around 18.5 and 25 for men to be over 30. A reading of over 30 is considered overweight. For example, if you are a woman and have a BMI of 24.9 then you are considered overweight.",
+  "@explanationBMI": {
+    "description": "What is BMI part1"
+  },
+  "explanationBMI2": "Weight gain over the last year is common for most people in their mid-thirties. More specifically, women are at a higher risk of gaining weight than men. A study by the International Journal of Epidemiology (IJE) examined how BMI has changed from 1985-1995. The results revealed a very significant rise in weight gain amongst women aged 30 and above, and this was found to be both a cause and consequence of life events.",
+  "@explanationBMI2": {
+    "description": "What is BMI part2"
+  },
+  "explanationBMI3": "Drinking habits have changed dramatically over the last 20 years. More and more women are choosing to drink more wine than beer. This results in women having a higher rate of alcohol intake than men.",
+  "@explanationBMI3": {
+    "description": "What is BMI part3"
+  },
+  "ratingVerySeverelyUnderweight": "very severely underweight",
+  "@ratingVerySeverelyUnderweight": {
+    "description": "Rating description very severely underweight"
+  },
+  "ratingSeverelyUnderweight": "Severely underweight",
+  "@ratingSeverelyUnderweight": {
+    "description": "Rating description Severely underweight"
+  },
+  "ratingModeratelyUnderweight": "Moderately underweight",
+  "@ratingModeratelyUnderweight": {
+    "description": "Rating description Moderately underweight"
+  },
+  "ratingSlightlyUnderweight": "Slightly underweight",
+  "@ratingSlightlyUnderweight": {
+    "description": "Rating description Slightly underweight"
+  },
+  "ratingNormal": "Normal (healthy weight)",
+  "@ratingNormal": {
+    "description": "Rating description normal weight"
+  },
+  "ratingOverweight": "Overweight",
+  "@ratingOverweight": {
+    "description": "Rating description Overweight"
+  },
+  "ratingModeratelyOverweight": "Moderately overweight",
+  "@ratingModeratelyOverweight": {
+    "description": "Rating description Moderately Overweigh"
+  },
+  "ratingModeratelyObese": "Moderately obese(class I)",
+  "@ratingModeratelyObese": {
+    "description": "Rating Moderately obese(class I)"
+  },
+  "ratingSeverelyObese": "Severely obese(class II)",
+  "@ratingSeverelyObese": {
+    "description": "Rating Severely obese(class II)"
+  },
+  "ratingVerySeverelyObese": "'Very severely obese(class III)",
+  "@ratingVerySeverelyObese": {
+    "description": "Rating Very severely obese(class III)"
+  }
+}
