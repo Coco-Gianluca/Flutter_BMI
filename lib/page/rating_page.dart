@@ -19,7 +19,7 @@ class RatingsPage extends StatelessWidget {
   ];
 
   static List url = ['https://www.applesfromny.com/wp-content/uploads/2020/05/Jonagold_NYAS-Apples2.png',
-    'https://www.applesfromny.com/wp-content/uploads/2020/05/Jonagold_NYAS-Apples2.png',
+    'https://i.pinimg.com/564x/e0/0d/d8/e00dd80d131c64fb54aa356a981f74ee.jpg',
     'https://www.applesfromny.com/wp-content/uploads/2020/05/Jonagold_NYAS-Apples2.png',
     'https://www.applesfromny.com/wp-content/uploads/2020/05/Jonagold_NYAS-Apples2.png',
     'https://www.applesfromny.com/wp-content/uploads/2020/05/Jonagold_NYAS-Apples2.png',
@@ -54,7 +54,7 @@ class RatingsPage extends StatelessWidget {
               child: Image.network(Ratingdetails[index].ImageUrl),
             ),
             onTap: (){
-              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>RatingDetail(ratingDataModel: ratings[index],)));
+              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>RatingDetail(ratingDataModel: Ratingdetails[index])));
             },
 
           ),

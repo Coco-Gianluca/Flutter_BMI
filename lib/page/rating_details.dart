@@ -9,11 +9,19 @@ class RatingDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
    return Scaffold(
-     appBar: AppBar(title: Text(''),),
+     appBar: AppBar(title: Text('Rating Details'),),
      body: Column(
        children: [
-         Image.network('src'),
-         Text('desc'),
+         Image.network(ratingDataModel.ImageUrl),
+         SizedBox(
+           height: 25,
+         ),
+         Text(
+             ratingDataModel.name,
+           style: TextStyle(
+             fontSize: 25,
+           ),
+         ),
        ],
      ),
    );
