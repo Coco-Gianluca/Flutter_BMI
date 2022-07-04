@@ -1,7 +1,38 @@
+import 'package:bmi/page/rating_data_model.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
 class RatingsPage extends StatelessWidget {
+
+  static List<String> ratings = [
+    'very severely underweight',
+    'Severely underweight',
+    'Moderately underweight',
+    'Slightly underweight',
+    'Normal (healthy weight)',
+    'Overweight',
+    'Moderately overweight',
+    'Moderately obese(class I)',
+    'Severely obese(class II)',
+    'Very severely obese(class III)'
+  ];
+
+  static List url = ['https://www.applesfromny.com/wp-content/uploads/2020/05/Jonagold_NYAS-Apples2.png',
+    'https://www.applesfromny.com/wp-content/uploads/2020/05/Jonagold_NYAS-Apples2.png',
+    'https://www.applesfromny.com/wp-content/uploads/2020/05/Jonagold_NYAS-Apples2.png',
+    'https://www.applesfromny.com/wp-content/uploads/2020/05/Jonagold_NYAS-Apples2.png',
+    'https://www.applesfromny.com/wp-content/uploads/2020/05/Jonagold_NYAS-Apples2.png',
+    'https://www.applesfromny.com/wp-content/uploads/2020/05/Jonagold_NYAS-Apples2.png',
+    'https://www.applesfromny.com/wp-content/uploads/2020/05/Jonagold_NYAS-Apples2.png',
+    'https://www.applesfromny.com/wp-content/uploads/2020/05/Jonagold_NYAS-Apples2.png',
+    'https://www.applesfromny.com/wp-content/uploads/2020/05/Jonagold_NYAS-Apples2.png',
+    'https://www.applesfromny.com/wp-content/uploads/2020/05/Jonagold_NYAS-Apples2.png',
+    'https://www.applesfromny.com/wp-content/uploads/2020/05/Jonagold_NYAS-Apples2.png',
+];
+  final List<RatingDataModel> Ratingdetails = List.generate(
+      ratings.length,
+          (index)
+      => RatingDataModel('${ratings[index]}', '${url[index]}', '${ratings[index]}'));
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -10,7 +41,27 @@ class RatingsPage extends StatelessWidget {
       centerTitle: true,
       backgroundColor: Color.fromRGBO(50, 75, 205, 1),
     ),
-    body: ListView(
+    body: ListView.builder(
+      itemCount: ratings.length,
+        itemBuilder: (context,index){
+          return Card(
+          child: ListTile(
+            title: Text(Ratingdetails[index].name),
+            leading: SizedBox(
+              width: 50,
+              height: 50,
+              child: Image.network(Ratingdetails[index].ImageUrl),
+            ),
+            onTap: (){
+              print('tapped');
+            },
+
+          ),
+          );
+        }
+        )
+
+    /*body: ListView(
       children: const <Widget>[
         ListTile(
           title: Text('very severely underweight'),
@@ -45,6 +96,6 @@ class RatingsPage extends StatelessWidget {
         ),
 
       ],
-    ),
+    ),*/
   );
 }
