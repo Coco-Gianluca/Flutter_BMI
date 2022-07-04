@@ -1,7 +1,10 @@
+import 'package:bmi/l10n/l10n.dart';
 import 'package:bmi/widget/button_widget.dart';
 import 'package:bmi/widget/navigation_drawer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localization.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 
 Future main() async {
@@ -21,7 +24,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => MaterialApp(
     debugShowCheckedModeBanner: false,
     title: title,
-    theme: ThemeData(primarySwatch: Colors.blue),
+    theme: ThemeData(
+        primarySwatch: Colors.blue
+    ),
+    supportedLocales: L10n.all,
+    localizationsDelegates: [
+      AppLocalizations.delegate,
+      GlobalMaterialLocalizations.delegate,
+      GlobalCupertinoLocalizations.delegate,
+      GlobalWidgetsLocalizations.delegate,
+    ],
+
     home: MainPage(),
   );
 }

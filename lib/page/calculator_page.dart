@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:path/path.dart';
+import 'package:path_provider/path_provider.dart';
+import 'dart:io';
+
 
 class CalculatePage extends StatelessWidget {
   @override
@@ -27,7 +32,7 @@ class _CalculatorState extends State<Calculator> {
   // ID for the Database // The BMI  // the message at the beginning
   int? id;
   double? _bmi;
-  String _message = 'Please enter your height an weight';
+  String _message = 'Please enter your personal data';
 
   void _calculate() {
     final double? height = double.tryParse(_heightController.value.text);
@@ -36,7 +41,7 @@ class _CalculatorState extends State<Calculator> {
     // Check if the inputs are valid
     if (height == null || height <= 0 || weight == null || weight <= 0) {
       setState(() {
-        _message = "Your height and weigh must be positive numbers";
+        _message = "Your height and weight must be positive numbers";
       });
       return;
     }
@@ -46,7 +51,7 @@ class _CalculatorState extends State<Calculator> {
       if (_bmi! < 18.5) {
         _message = "You are underweight";
       } else if (_bmi! < 25) {
-        _message = 'You body is fine';
+        _message = 'Your body is fine';
       } else if (_bmi! < 30) {
         _message = 'You are overweight';
       } else {
@@ -98,7 +103,7 @@ class _CalculatorState extends State<Calculator> {
                     ),
                     Container(
                       child: Text(
-                        _bmi == null ? 'No Result' : _bmi!.toStringAsFixed(2),
+                        _bmi == null ? 'Empty' : _bmi!.toStringAsFixed(2),
                         style: TextStyle(fontSize: 50),
                         textAlign: TextAlign.center,
                       ),
@@ -120,7 +125,7 @@ class _CalculatorState extends State<Calculator> {
         ));
   }
 
-
-
-
 }
+
+
+
