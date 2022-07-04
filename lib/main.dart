@@ -40,6 +40,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MainPage extends StatefulWidget {
+  const MainPage({Key? key}) : super(key: key);
+
   @override
   _MainPageState createState() => _MainPageState();
 }
@@ -48,14 +50,13 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
     drawer: NavigationDrawerWidget(),
-    // endDrawer: NavigationDrawerWidget(),
     appBar: AppBar(
       title: Text(MyApp.title),
     ),
-    body: Row(
+    /*body: Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Container(
+      children: const [
+        SizedBox(
           width: 400,
              child: Text(
               'Your BMI is a number based on your height, weight and age.\nEach of these are divided into three categories: under 18.5, 18.5-24 and 25-29.9. For women it is considered normal to be around 18.5 and 25 for men to be over 30. A reading of over 30 is considered overweight. For example, if you are a woman and have a BMI of 24.9 then you are considered overweight.'
@@ -73,7 +74,7 @@ class _MainPageState extends State<MainPage> {
       ],
 
       ),
-    );
+    */);
 
 }
 
