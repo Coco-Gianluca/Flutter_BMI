@@ -25,7 +25,7 @@ class RatingsPage extends StatelessWidget {
     'https://i.pinimg.com/564x/50/0e/33/500e33fa46ab02781f72c7796149e45b.jpg',
     'https://i.pinimg.com/564x/94/8f/7e/948f7ead85f37010a48405cf07ce9f04.jpg',
     'https://i.pinimg.com/564x/8c/75/31/8c7531464c16441928910323ae8ae8b1.jpg',
-    'https://i.pinimg.com/564x/b1/56/02/b1560210e7495a4fd8ff3d418f1b599f.jpg',
+    'https://i.pinimg.com/564x/a5/f9/90/a5f990ced292fbef9c5d91ffcac3262b.jpg',
 ];
   static List<String> description = [
     'Values less than 15.00.',
