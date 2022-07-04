@@ -27,7 +27,7 @@ class RatingsPage extends StatelessWidget {
     'https://i.pinimg.com/564x/8c/75/31/8c7531464c16441928910323ae8ae8b1.jpg',
     'https://i.pinimg.com/564x/b1/56/02/b1560210e7495a4fd8ff3d418f1b599f.jpg',
 ];
-  /*static List<String> description = [
+  static List<String> description = [
     'Values less than 15.00.',
     'Values from 15.00 to less than 16.00.',
     'Values from 16.00 to less than 17.00.',
@@ -38,11 +38,10 @@ class RatingsPage extends StatelessWidget {
     'Values from 35.00 to less than 40.00.',
     'Values less than 15.00.'
   ];
-  */
   final List<RatingDataModel> Ratingdetails = List.generate(
       ratings.length,
           (index)
-      => RatingDataModel(ratings[index], '${url[index]}', ratings[index]));
+      => RatingDataModel(ratings[index], '${url[index]}', description[index]));
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -65,47 +64,9 @@ class RatingsPage extends StatelessWidget {
             onTap: (){
               Navigator.of(context).push(MaterialPageRoute(builder: (context)=>RatingDetail(ratingDataModel: Ratingdetails[index])));
             },
-
           ),
           );
         }
         )
-
-    /*body: ListView(
-      children: const <Widget>[
-        ListTile(
-          title: Text('very severely underweight'),
-        ),
-        ListTile(
-          title: Text('Severely underweight'),
-        ),
-        ListTile(
-          title: Text('Moderately underweight'),
-        ),
-        ListTile(
-          title: Text('Slightly underweight'),
-        ),
-        ListTile(
-          title: Text('Normal (healthy weight)'),
-        ),
-        ListTile(
-          title: Text('Overweight'),
-        ),
-        ListTile(
-          title: Text('Moderately overweight'),
-        ),
-        ListTile(
-          title: Text('Moderately obese(class I)'),
-        ),
-
-        ListTile(
-          title: Text('Severely obese(class II)'),
-        ),
-        ListTile(
-          title: Text('Very severely obese(class III)'),
-        ),
-
-      ],
-    ),*/
   );
 }
