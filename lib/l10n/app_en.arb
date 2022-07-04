@@ -51,8 +51,8 @@
   "@openDrawer": {
     "description": "Open Drawer"
   },
-  "welcome": "Welcome",
-  "@welcome": {
+  "title": "Welcome",
+  "@title": {
     "description": "Welcome in main page"
   },
   "yourHistory": "Your History",

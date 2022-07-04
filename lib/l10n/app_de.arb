@@ -12,7 +12,7 @@
   "weight": "Gewicht (kg)",
   "empty": "Leer",
   "openDrawer": " Öffne Menü",
-  "welcome": "Wilkommen",
+  "title": "Wilkommen",
   "yourHistory": "Dein Verlauf",
   "whatIsBMI": "Was ist der BMI",
   "explanationBMI": "Ihr BMI ist eine Zahl, die auf Ihrer Größe, Ihrem Gewicht und Ihrem Alter basiert. Jede davon ist in drei Kategorien unterteilt: unter 18,5, 18,5-24 und 25-29,9. Bei Frauen gilt ein Wert um die 18,5 als normal, bei Männern ab 30 bei 25. Ein Wert von über 30 gilt als Übergewicht. Wenn Sie beispielsweise eine Frau sind und einen BMI von 24,9 haben, gelten Sie als übergewichtig.",
