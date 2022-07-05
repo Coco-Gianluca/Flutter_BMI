@@ -1,3 +1,4 @@
+import 'package:bmi/page/wishlist_page.dart';
 import 'package:flutter/material.dart';
 import 'package:bmi/page/history_page.dart';
 import 'package:bmi/page/calculator_page.dart';
@@ -12,8 +13,8 @@ class NavigationDrawerWidget extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
   @override
   Widget build(BuildContext context) {
-    final name = 'Gianluca Coco';
-    final email = 'Gianluca@Coco.com';
+    final name = 'Codi Muster';
+    final email = 'Codi@Muster.com';
     final urlImage =
         'https://i.pinimg.com/originals/c6/40/96/c640968c21bfceb56e8031741d8892e9.gif';
 
@@ -28,7 +29,7 @@ class NavigationDrawerWidget extends StatelessWidget {
               email: email,
               onClicked: () => Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => UserPage(
-                  name: 'Gianluca Coco',
+                  name: 'Codi Muster',
                   urlImage: urlImage,
                 ),
               )),
@@ -59,23 +60,9 @@ class NavigationDrawerWidget extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
-                    text: AppLocalizations.of(context)!.whatIsBMI,
+                    text: 'Healthy Wishlist',
                     icon: Icons.question_mark,
                     onClicked: () => selectedItem(context, 3),
-                  ),
-                  const SizedBox(height: 24),
-                  Divider(color: Colors.white70),
-                  const SizedBox(height: 24),
-                  buildMenuItem(
-                    text: 'Plugins',
-                    icon: Icons.account_tree_outlined,
-                    onClicked: () => selectedItem(context, 4),
-                  ),
-                  const SizedBox(height: 16),
-                  buildMenuItem(
-                    text: 'Notifications',
-                    icon: Icons.notifications_outlined,
-                    onClicked: () => selectedItem(context, 5),
                   ),
                 ],
               ),
@@ -186,7 +173,7 @@ class NavigationDrawerWidget extends StatelessWidget {
         break;
       case 3:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => StatementPage(),
+          builder: (context) => WishlistPage(),
         ));
         break;
     }
