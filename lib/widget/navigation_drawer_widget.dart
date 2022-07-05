@@ -4,7 +4,8 @@ import 'package:bmi/page/calculator_page.dart';
 import 'package:bmi/page/user_page.dart';
 import 'package:bmi/page/rating_page.dart';
 import 'package:bmi/page/statement_page.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localization.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 
 class NavigationDrawerWidget extends StatelessWidget {
@@ -40,25 +41,25 @@ class NavigationDrawerWidget extends StatelessWidget {
                   buildSearchField(),
                   const SizedBox(height: 24),
                   buildMenuItem(
-                    text: 'Calculator',
+                    text: AppLocalizations.of(context)!.calculator,
                     icon: Icons.calculate,
                     onClicked: () => selectedItem(context, 0),
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
-                    text: 'Your History',
+                    text: AppLocalizations.of(context)!.yourHistory,
                     icon: Icons.favorite_border,
                     onClicked: () => selectedItem(context, 1),
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
-                    text: 'Rating',
+                    text: AppLocalizations.of(context)!.ratings,
                     icon: Icons.book,
                     onClicked: () => selectedItem(context, 2),
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
-                    text: 'What is BMI?',
+                    text: AppLocalizations.of(context)!.whatIsBMI,
                     icon: Icons.question_mark,
                     onClicked: () => selectedItem(context, 3),
                   ),

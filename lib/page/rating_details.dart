@@ -1,5 +1,6 @@
 import 'package:bmi/page/rating_data_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
 class RatingDetail extends StatelessWidget {
   final RatingDataModel ratingDataModel;
@@ -9,7 +10,7 @@ class RatingDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
    return Scaffold(
-     appBar: AppBar(title: Text('Rating Details'),),
+     appBar: AppBar(title: Text(AppLocalizations.of(context)!.ratingsDetails),),
      body: Column(
        children: [
          Image.network(ratingDataModel.ImageUrl),

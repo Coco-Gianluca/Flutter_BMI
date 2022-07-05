@@ -1,6 +1,7 @@
 import 'package:bmi/page/rating_data_model.dart';
 import 'package:bmi/page/rating_details.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localization.dart';
 import 'dart:math';
 
 class RatingsPage extends StatelessWidget {
@@ -46,7 +47,7 @@ class RatingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
-      title: Text('Ratings'),
+      title: Text(AppLocalizations.of(context)!.ratings),
       centerTitle: true,
       backgroundColor: Color.fromRGBO(50, 75, 205, 1),
     ),

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localization.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
@@ -11,6 +14,13 @@ class CalculatePage extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Calculator',
+      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
       home: Calculator(),
     );
   }
@@ -41,7 +51,7 @@ class _CalculatorState extends State<Calculator> {
     // Check if the inputs are valid
     if (height == null || height <= 0 || weight == null || weight <= 0) {
       setState(() {
-        _message = "Your height and weight must be positive numbers";
+        _message = AppLocalizations.of(this.context)!.ifWrongNumber;
       });
       return;
     }
@@ -49,22 +59,24 @@ class _CalculatorState extends State<Calculator> {
     setState(() {
       _bmi = weight / (height * height);
       if (_bmi! < 18.5) {
-        _message = "You are underweight";
+        _message = AppLocalizations.of(this.context)!.underweight;
       } else if (_bmi! < 25) {
-        _message = 'Your body is fine';
+        _message = AppLocalizations.of(this.context)!.fine;
       } else if (_bmi! < 30) {
-        _message = 'You are overweight';
+        _message = AppLocalizations.of(this.context)!.overweight;
       } else {
-        _message = 'You are obese';
+        _message = AppLocalizations.of(this.context)!.obese;
       }
     });
   }
+
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Calculator'),
+          title: Text(AppLocalizations.of(context)!.calculator),
           centerTitle: true,
           backgroundColor: Color.fromRGBO(50, 75, 205, 1)
         ),
@@ -83,27 +95,27 @@ class _CalculatorState extends State<Calculator> {
                     TextField(
                       keyboardType:
                       TextInputType.numberWithOptions(decimal: true),
-                      decoration: InputDecoration(labelText: 'Height (m)'),
+                      decoration: InputDecoration(labelText: AppLocalizations.of(context)!.height),
                       controller: _heightController,
                     ),
                     TextField(
                       keyboardType:
                       TextInputType.numberWithOptions(decimal: true),
                       decoration: InputDecoration(
-                        labelText: 'Weight (kg)',
+                        labelText: AppLocalizations.of(context)!.weight,
                       ),
                       controller: _weightController,
                     ),
                     ElevatedButton(
                       onPressed: _calculate,
-                      child: Text('Calculate'),
+                      child: Text(AppLocalizations.of(context)!.calculate),
                     ),
                     SizedBox(
                       height: 30,
                     ),
                     Container(
                       child: Text(
-                        _bmi == null ? 'Empty' : _bmi!.toStringAsFixed(2),
+                        _bmi == null ? AppLocalizations.of(context)!.empty : _bmi!.toStringAsFixed(2),
                         style: TextStyle(fontSize: 50),
                         textAlign: TextAlign.center,
                       ),
