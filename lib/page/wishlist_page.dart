@@ -37,29 +37,32 @@ class _SqliteAppState extends State<SqliteApp> {
           ),
         ),
         body: Center(
-          child: FutureBuilder<List<Grocery>>(
-              future: DatabaseHelper.instance.getGroceries(),
+          child: FutureBuilder<List<Wish>>(
+              future: DatabaseHelper.instance.getWishes(),
               builder: (BuildContext context,
-                  AsyncSnapshot<List<Grocery>> snapshot) {
+                  AsyncSnapshot<List<Wish>> snapshot) {
                 if (!snapshot.hasData) {
                   return Center(child: Text('Loading...'));
                 }
                 return snapshot.data!.isEmpty
-                    ? Center(child: Text('No Groceries in List.'))
+                    ? Center(child: Text(
+                        ':('
+                      )
+                    )
                     : ListView(
-                  children: snapshot.data!.map((grocery) {
+                  children: snapshot.data!.map((wish) {
                     return Center(
                       child: Card(
-                        color: selectedId == grocery.id
+                        color: selectedId == wish.id
                             ? Colors.white70
                             : Colors.white,
                         child: ListTile(
-                          title: Text(grocery.name),
+                          title: Text(wish.name),
                           onTap: () {
                             setState(() {
                               if (selectedId == null) {
-                                textController.text = grocery.name;
-                                selectedId = grocery.id;
+                                textController.text = wish.name;
+                                selectedId = wish.id;
                               } else {
                                 textController.text = '';
                                 selectedId = null;
@@ -68,7 +71,7 @@ class _SqliteAppState extends State<SqliteApp> {
                           },
                           onLongPress: () {
                             setState(() {
-                              DatabaseHelper.instance.remove(grocery.id!);
+                              DatabaseHelper.instance.remove(wish.id!);
                             });
                           },
                         ),
@@ -83,10 +86,10 @@ class _SqliteAppState extends State<SqliteApp> {
           onPressed: () async {
             selectedId != null
                 ? await DatabaseHelper.instance.update(
-              Grocery(id: selectedId, name: textController.text),
+              Wish(id: selectedId, name: textController.text),
             )
                 : await DatabaseHelper.instance.add(
-              Grocery(name: textController.text),
+              Wish(name: textController.text),
             );
             setState(() {
               textController.clear();
@@ -99,13 +102,13 @@ class _SqliteAppState extends State<SqliteApp> {
   }
 }
 
-class Grocery {
+class Wish {
   final int? id;
   final String name;
 
-  Grocery({this.id, required this.name});
+  Wish({this.id, required this.name});
 
-  factory Grocery.fromMap(Map<String, dynamic> json) => new Grocery(
+  factory Wish.fromMap(Map<String, dynamic> json) => new Wish(
     id: json['id'],
     name: json['name'],
   );
@@ -146,18 +149,18 @@ class DatabaseHelper {
       ''');
   }
 
-  Future<List<Grocery>> getGroceries() async {
+  Future<List<Wish>> getWishes() async {
     Database db = await instance.database;
     var groceries = await db.query('groceries', orderBy: 'name');
-    List<Grocery> groceryList = groceries.isNotEmpty
-        ? groceries.map((c) => Grocery.fromMap(c)).toList()
+    List<Wish> wishList = groceries.isNotEmpty
+        ? groceries.map((c) => Wish.fromMap(c)).toList()
         : [];
-    return groceryList;
+    return wishList;
   }
 
-  Future<int> add(Grocery grocery) async {
+  Future<int> add(Wish wish) async {
     Database db = await instance.database;
-    return await db.insert('groceries', grocery.toMap());
+    return await db.insert('groceries', wish.toMap());
   }
 
   Future<int> remove(int id) async {
@@ -165,10 +168,10 @@ class DatabaseHelper {
     return await db.delete('groceries', where: 'id = ?', whereArgs: [id]);
   }
 
-  Future<int> update(Grocery grocery) async {
+  Future<int> update(Wish wish) async {
     Database db = await instance.database;
-    return await db.update('groceries', grocery.toMap(),
-        where: "id = ?", whereArgs: [grocery.id]);
+    return await db.update('groceries', wish.toMap(),
+        where: "id = ?", whereArgs: [wish.id]);
   }
 
 

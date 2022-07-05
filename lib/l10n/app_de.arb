@@ -27,5 +27,7 @@
   "ratingSeverelyObese": "Stark fettleibig (Klasse II)",
   "ratingVerySeverelyObese": "Sehr Stark fettleibig (Klasse III)",
   "ratings": "Bewertungen",
-  "ratingsDetails": "Bewertungs Informationen"
+  "ratingsDetails": "Bewertungs Informationen",
+  "healthyWishlist": "Gesunde Wunschliste",
+  "noWishInList" : "Wunschliste ist leer!"
 }

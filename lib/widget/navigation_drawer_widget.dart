@@ -4,7 +4,6 @@ import 'package:bmi/page/history_page.dart';
 import 'package:bmi/page/calculator_page.dart';
 import 'package:bmi/page/user_page.dart';
 import 'package:bmi/page/rating_page.dart';
-import 'package:bmi/page/statement_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -60,8 +59,8 @@ class NavigationDrawerWidget extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
-                    text: 'Healthy Wishlist',
-                    icon: Icons.question_mark,
+                    text: AppLocalizations.of(context)!.healthyWishlist,
+                    icon: Icons.star,
                     onClicked: () => selectedItem(context, 3),
                   ),
                 ],

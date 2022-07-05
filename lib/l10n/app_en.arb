@@ -114,6 +114,14 @@
   "ratingsDetails": "Ratings Details",
   "@ratingsDetails": {
     "description": "Rating Details title"
+  },
+  "healthyWishlist": "Healthy Wishlist",
+  "@healthyWishlist": {
+    "description": "Healthy Wishlist title"
+  },
+  "noWishInList": "No Wish in List",
+  "@noWishInList": {
+    "description": "No Wish in List"
   }
 }
 
