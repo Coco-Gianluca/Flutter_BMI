@@ -173,7 +173,7 @@ class NavigationDrawerWidget extends StatelessWidget {
         break;
       case 3:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => WishlistPage(),
+          builder: (context) => SqliteApp(),
         ));
         break;
     }

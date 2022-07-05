@@ -7,17 +7,7 @@ import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
 
-class WishlistPage extends StatelessWidget {
 
-  @override
-  Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(
-      title: Text('Healthy Wishlist'),
-      centerTitle: true,
-      backgroundColor: Color.fromRGBO(50, 75, 205, 1),
-    ),
-  );
-}
 
 void main(){
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,26 +15,26 @@ void main(){
   runApp(new SqliteApp());
 }
 
-
 class SqliteApp extends StatefulWidget {
   const SqliteApp({Key? key}) : super(key: key);
 
   @override
-  State<SqliteApp> createState() => _SqliteAppState();
+  _SqliteAppState createState() => _SqliteAppState();
 }
 
 class _SqliteAppState extends State<SqliteApp> {
+  int? selectedId;
   final textController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-            title: TextField(
-              controller: textController,
-
-            )
+          title: TextField(
+            controller: textController,
+          ),
         ),
         body: Center(
           child: FutureBuilder<List<Grocery>>(
@@ -59,8 +49,29 @@ class _SqliteAppState extends State<SqliteApp> {
                     : ListView(
                   children: snapshot.data!.map((grocery) {
                     return Center(
-                      child: ListTile(
-                        title: Text(grocery.name),
+                      child: Card(
+                        color: selectedId == grocery.id
+                            ? Colors.white70
+                            : Colors.white,
+                        child: ListTile(
+                          title: Text(grocery.name),
+                          onTap: () {
+                            setState(() {
+                              if (selectedId == null) {
+                                textController.text = grocery.name;
+                                selectedId = grocery.id;
+                              } else {
+                                textController.text = '';
+                                selectedId = null;
+                              }
+                            });
+                          },
+                          onLongPress: () {
+                            setState(() {
+                              DatabaseHelper.instance.remove(grocery.id!);
+                            });
+                          },
+                        ),
                       ),
                     );
                   }).toList(),
@@ -68,56 +79,54 @@ class _SqliteAppState extends State<SqliteApp> {
               }),
         ),
         floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.save),
-            onPressed: () async {
-              await DatabaseHelper.instance.add(
-                Grocery(name: textController.text),
-              );
-              setState(() {
-                textController.clear();
-              });
-            }),
+          child: Icon(Icons.save),
+          onPressed: () async {
+            selectedId != null
+                ? await DatabaseHelper.instance.update(
+              Grocery(id: selectedId, name: textController.text),
+            )
+                : await DatabaseHelper.instance.add(
+              Grocery(name: textController.text),
+            );
+            setState(() {
+              textController.clear();
+              selectedId = null;
+            });
+          },
+        ),
       ),
     );
   }
 }
 
-
 class Grocery {
-
   final int? id;
   final String name;
 
   Grocery({this.id, required this.name});
 
-  factory Grocery.fromMap(Map<String, dynamic>json) => new Grocery(
-    id: json ['id'],
+  factory Grocery.fromMap(Map<String, dynamic> json) => new Grocery(
+    id: json['id'],
     name: json['name'],
   );
 
-  Map<String, dynamic> toMap(){
-    return{
+  Map<String, dynamic> toMap() {
+    return {
       'id': id,
-      'name' : name,
+      'name': name,
     };
   }
 }
 
-
-//Damit die Klasse nur eine Instanz hat
 class DatabaseHelper {
   DatabaseHelper._privateConstructor();
 
   static final DatabaseHelper instance = DatabaseHelper._privateConstructor();
 
-  //falls die DB nicht vorhanden ist initalisiert er eine
   static Database? _database;
 
   Future<Database> get database async => _database ??= await _initDatabase();
 
-//The dart:io import at the top provides support for Directory, path_provider provides support for getApplicationDocumentsDirectory and path.dart gives support for join.
-//
-// So _initDatabase opens the database, which is groceries.db, version 1, and if it doesn't exist we can run the _onCreate method on creation of the database. So... we need the _onCreate method now. Put it below the _initDatabase method:
   Future<Database> _initDatabase() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
     String path = join(documentsDirectory.path, 'groceries.db');
@@ -128,7 +137,6 @@ class DatabaseHelper {
     );
   }
 
-//Erstellt die Tabelle für die Datenbank
   Future _onCreate(Database db, int version) async {
     await db.execute('''
       CREATE TABLE groceries(
@@ -151,4 +159,17 @@ class DatabaseHelper {
     Database db = await instance.database;
     return await db.insert('groceries', grocery.toMap());
   }
+
+  Future<int> remove(int id) async {
+    Database db = await instance.database;
+    return await db.delete('groceries', where: 'id = ?', whereArgs: [id]);
+  }
+
+  Future<int> update(Grocery grocery) async {
+    Database db = await instance.database;
+    return await db.update('groceries', grocery.toMap(),
+        where: "id = ?", whereArgs: [grocery.id]);
+  }
+
+
 }
