@@ -2,7 +2,7 @@ import 'package:bmi/page/rating_data_model.dart';
 import 'package:bmi/page/rating_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localization.dart';
-import 'dart:math';
+
 
 class RatingsPage extends StatelessWidget {
 
