@@ -7,6 +7,8 @@ import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 
+import '../widget/navigation_drawer_widget.dart';
+
 
 class CalculatePage extends StatelessWidget {
   @override
@@ -75,6 +77,7 @@ class _CalculatorState extends State<Calculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: NavigationDrawerWidget(),
         appBar: AppBar(
           title: Text(AppLocalizations.of(context)!.calculator),
           centerTitle: true,
